@@ -6,784 +6,807 @@
 <title>Glosario Interactivo IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --black:#000;--white:#fff;
-  --gray-50:#f9f9f9;--gray-100:#f2f2f2;--gray-200:#e8e8e8;--gray-400:#999;--gray-600:#555;--gray-800:#222;
-  --blue:#0071e3;--blue-dark:#0060c0;
-  --accent-1:#6366f1;--accent-2:#8b5cf6;--accent-3:#06b6d4;
-  --mat-1:#0071e3;--mat-2:#1d4ed8;
-  --mat-tgs:#059669;--mat-tgs-2:#047857;
-  --mat-agil:#dc2626;--mat-agil-2:#b91c1c;
-  --font-display:'Syne',sans-serif;
-  --font-body:'DM Sans',sans-serif;
-  --nav-h:64px;
-  --radius-card:20px;
-  --shadow-card:0 2px 20px rgba(0,0,0,0.08);
-  --shadow-hover:0 12px 40px rgba(0,0,0,0.15);
-  --transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+  --black:#1d1d1f;
+  --white:#fff;
+  --gray-50:#fbfbfd;
+  --gray-100:#f5f5f7;
+  --gray-200:#e8e8ed;
+  --gray-300:#d2d2d7;
+  --gray-400:#86868b;
+  --gray-600:#515154;
+  --gray-800:#1d1d1f;
+  --blue:#0071e3;
+  --mat-algo:#0071e3;
+  --mat-tgs:#1c8c4e;
+  --mat-agil:#c0392b;
+  --nav-h:52px;
+  --r:18px;
+  --font:-apple-system,BlinkMacSystemFont,'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(0.4,0,0.2,1);
 }
 html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--black);font-family:var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-::selection{background:var(--blue);color:#fff;}
+body{
+  background:var(--gray-50);
+  color:var(--black);
+  font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  font-size:17px;
+  line-height:1.47059;
+  letter-spacing:-0.022em;
+}
+::selection{background:#0071e3;color:#fff;}
 ::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:#f1f1f1;}
-::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+::-webkit-scrollbar-track{background:#f5f5f7;}
+::-webkit-scrollbar-thumb{background:#d2d2d7;border-radius:3px;}
 
-/* ── NAV ── */
+/* NAV */
 nav{
   position:fixed;top:0;left:0;width:100%;height:var(--nav-h);
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.8);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(0,0,0,0.07);
+  border-bottom:1px solid rgba(0,0,0,0.12);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;z-index:1000;
-  transition:var(--transition);
+  padding:0 22px;z-index:9000;
 }
 .nav-logo{
-  font-family:var(--font-display);font-size:18px;font-weight:800;
-  letter-spacing:-0.03em;color:var(--black);text-decoration:none;
-  display:flex;align-items:center;gap:8px;
+  font-size:21px;font-weight:600;
+  letter-spacing:0.004em;
+  color:var(--black);text-decoration:none;
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
 }
-.nav-logo span{
-  display:inline-block;width:28px;height:28px;background:var(--black);
+.nav-logo-icon{
+  width:30px;height:30px;background:var(--black);
   border-radius:8px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
 }
-.nav-logo span svg{width:14px;height:14px;fill:#fff;}
-.nav-pills{display:flex;gap:4px;background:var(--gray-100);border-radius:50px;padding:4px;}
+.nav-logo-icon svg{width:16px;height:16px;fill:#fff;}
+.nav-pills{
+  display:flex;gap:2px;
+  background:rgba(0,0,0,0.05);
+  border-radius:980px;padding:3px;
+  position:absolute;left:50%;transform:translateX(-50%);
+}
 .nav-pill{
-  padding:7px 18px;border-radius:50px;font-size:13px;font-weight:500;
+  padding:6px 16px;border-radius:980px;
+  font-size:13px;font-weight:400;letter-spacing:-0.01em;
   color:var(--gray-600);cursor:pointer;border:none;background:transparent;
-  transition:var(--transition);white-space:nowrap;font-family:var(--font-body);
+  transition:all 0.22s var(--ease);white-space:nowrap;
+  font-family:var(--font);
 }
-.nav-pill.active,.nav-pill:hover{background:#fff;color:var(--black);box-shadow:0 1px 6px rgba(0,0,0,0.1);}
+.nav-pill.active,.nav-pill:hover{
+  background:#fff;color:var(--black);
+  box-shadow:0 1px 4px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.06);
+}
+.nav-right{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
 .nav-search{
   display:flex;align-items:center;gap:8px;
-  background:var(--gray-100);border-radius:50px;padding:8px 16px;
-  border:1px solid transparent;transition:var(--transition);
+  background:rgba(0,0,0,0.06);
+  border-radius:980px;padding:6px 14px;
+  border:1px solid transparent;
+  transition:all 0.22s var(--ease);min-width:200px;
 }
-.nav-search:focus-within{background:#fff;border-color:var(--gray-200);box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.nav-search svg{width:15px;height:15px;stroke:var(--gray-400);flex-shrink:0;}
-.nav-search input{border:none;background:transparent;outline:none;font-size:14px;color:var(--black);width:160px;font-family:var(--font-body);}
+.nav-search:focus-within{
+  background:#fff;
+  border-color:var(--gray-300);
+  box-shadow:0 0 0 3px rgba(0,113,227,0.2);
+}
+.nav-search svg{width:14px;height:14px;stroke:var(--gray-400);stroke-width:2;fill:none;flex-shrink:0;}
+.nav-search input{
+  border:none;background:transparent;outline:none;
+  font-size:14px;color:var(--black);width:100%;
+  font-family:var(--font);letter-spacing:-0.01em;
+}
 .nav-search input::placeholder{color:var(--gray-400);}
 
-/* ── HERO ── */
+/* HERO */
 .hero{
-  padding-top:var(--nav-h);
-  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding-top:calc(var(--nav-h) + 80px);
+  padding-bottom:100px;
   text-align:center;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.07) 0%,transparent 70%),
-             radial-gradient(ellipse 60% 40% at 80% 80%,rgba(6,182,212,0.05) 0%,transparent 60%),
-             var(--white);
-  padding-left:40px;padding-right:40px;padding-bottom:80px;
-  position:relative;overflow:hidden;
+  background:#fff;
+  padding-left:24px;padding-right:24px;
+  border-bottom:1px solid var(--gray-200);
 }
-.hero::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(99,102,241,0.3),rgba(6,182,212,0.3),transparent);
+.hero-eyebrow{
+  font-size:14px;font-weight:400;letter-spacing:0.01em;
+  color:var(--blue);margin-bottom:10px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
 }
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--gray-100);border:1px solid var(--gray-200);
-  border-radius:50px;padding:6px 14px;font-size:12px;font-weight:500;
-  color:var(--gray-600);margin-bottom:32px;
-  animation:fadeDown 0.7s ease both;
-}
-.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;}
 .hero-title{
-  font-family:var(--font-display);
-  font-size:clamp(52px,9vw,100px);
-  font-weight:800;letter-spacing:-0.04em;line-height:0.95;
-  color:var(--black);margin-bottom:24px;
-  animation:fadeDown 0.7s ease 0.1s both;
+  font-size:clamp(48px,7vw,80px);
+  font-weight:700;
+  letter-spacing:-0.025em;
+  line-height:1.05;
+  color:var(--black);
+  margin-bottom:16px;
 }
-.hero-title .accent-word{
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
+.hero-title-blue{color:var(--blue);}
 .hero-sub{
-  font-size:clamp(16px,2vw,20px);color:var(--gray-600);font-weight:400;
-  max-width:560px;line-height:1.6;margin-bottom:48px;
-  animation:fadeDown 0.7s ease 0.2s both;
+  font-size:clamp(17px,2vw,21px);
+  font-weight:400;
+  color:var(--gray-600);
+  max-width:520px;
+  margin:0 auto 40px;
+  line-height:1.47059;
+  letter-spacing:-0.022em;
 }
 .hero-stats{
-  display:flex;gap:48px;justify-content:center;margin-bottom:60px;
-  animation:fadeDown 0.7s ease 0.3s both;
+  display:flex;gap:40px;justify-content:center;
+  margin-bottom:44px;
 }
-.stat{text-align:center;}
-.stat-n{font-family:var(--font-display);font-size:40px;font-weight:800;letter-spacing:-0.03em;color:var(--black);}
-.stat-l{font-size:13px;color:var(--gray-400);font-weight:400;margin-top:2px;}
-.hero-btns{display:flex;gap:12px;justify-content:center;animation:fadeDown 0.7s ease 0.4s both;}
-.btn-primary{
-  padding:14px 32px;background:var(--black);color:#fff;
-  border:none;border-radius:50px;font-size:15px;font-weight:500;
-  cursor:pointer;font-family:var(--font-body);
-  transition:var(--transition);display:flex;align-items:center;gap:8px;
+.stat-n{
+  font-size:40px;font-weight:700;letter-spacing:-0.03em;
+  color:var(--black);line-height:1;
 }
-.btn-primary:hover{background:var(--gray-800);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.2);}
-.btn-secondary{
-  padding:14px 32px;background:transparent;color:var(--black);
-  border:1.5px solid var(--gray-200);border-radius:50px;font-size:15px;font-weight:500;
-  cursor:pointer;font-family:var(--font-body);transition:var(--transition);
+.stat-l{font-size:14px;color:var(--gray-400);margin-top:4px;font-weight:400;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-blue{
+  padding:12px 24px;
+  background:var(--blue);color:#fff;
+  border:none;border-radius:980px;
+  font-size:15px;font-weight:400;letter-spacing:-0.01em;
+  cursor:pointer;font-family:var(--font);
+  transition:all 0.22s var(--ease);
+  display:inline-flex;align-items:center;gap:6px;
 }
-.btn-secondary:hover{border-color:var(--gray-400);transform:translateY(-2px);}
-.hero-scroll{
-  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeDown 0.7s ease 0.6s both;
+.btn-blue:hover{background:#0077ed;transform:scale(1.01);}
+.btn-blue:active{transform:scale(0.98);}
+.btn-outline{
+  padding:12px 24px;
+  background:transparent;color:var(--blue);
+  border:1.5px solid var(--blue);
+  border-radius:980px;font-size:15px;font-weight:400;letter-spacing:-0.01em;
+  cursor:pointer;font-family:var(--font);transition:all 0.22s var(--ease);
 }
-.hero-scroll span{font-size:11px;color:var(--gray-400);letter-spacing:0.12em;text-transform:uppercase;}
-.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gray-400),transparent);animation:scrollAnim 1.8s ease infinite;}
-@keyframes scrollAnim{0%,100%{transform:scaleY(1);opacity:0.6;}50%{transform:scaleY(0.5);opacity:1;}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+.btn-outline:hover{background:rgba(0,113,227,0.05);}
 
-/* ── MATERIAS BANNER ── */
-.materias-bar{
-  background:var(--black);padding:0 40px;overflow:hidden;
-  border-top:1px solid rgba(255,255,255,0.08);
-  border-bottom:1px solid rgba(255,255,255,0.08);
+/* SECTION */
+.section-wrap{padding:0 24px 80px;max-width:1200px;margin:0 auto;}
+.section-header{
+  text-align:center;
+  padding:72px 0 48px;
 }
-.materias-track{
-  display:flex;gap:0;
-  animation:marquee 30s linear infinite;
-  width:max-content;
+.eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;margin-bottom:10px;
 }
-.materia-item{
-  padding:18px 48px;font-family:var(--font-display);font-size:13px;font-weight:600;
-  letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);
-  border-right:1px solid rgba(255,255,255,0.1);white-space:nowrap;
-  display:flex;align-items:center;gap:10px;
-}
-.materia-item .mi-dot{width:6px;height:6px;border-radius:50%;}
-@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-/* ── SECTIONS ── */
-.section{padding:100px 40px;max-width:1200px;margin:0 auto;}
-.section-header{text-align:center;margin-bottom:64px;}
-.section-eyebrow{
-  font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
-  margin-bottom:16px;display:inline-flex;align-items:center;gap:8px;
-}
-.section-eyebrow::before,.section-eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:0.25;width:24px;}
 .section-title{
-  font-family:var(--font-display);font-size:clamp(36px,5vw,60px);
-  font-weight:800;letter-spacing:-0.03em;line-height:1;margin-bottom:16px;
+  font-size:clamp(32px,4vw,52px);
+  font-weight:700;letter-spacing:-0.025em;
+  line-height:1.07143;
+  color:var(--black);margin-bottom:12px;
 }
-.section-desc{font-size:17px;color:var(--gray-600);max-width:480px;margin:0 auto;line-height:1.6;}
+.section-desc{
+  font-size:17px;color:var(--gray-600);
+  max-width:480px;margin:0 auto;
+  line-height:1.47059;letter-spacing:-0.022em;
+}
 
-/* ── GRID ── */
+/* FILTER BAR */
+.filter-bar{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.05);
+  border-radius:12px;padding:10px 16px;
+  border:1px solid transparent;
+  transition:all 0.22s var(--ease);
+  max-width:440px;margin:0 auto 36px;
+}
+.filter-bar:focus-within{background:#fff;border-color:var(--gray-300);box-shadow:0 0 0 3px rgba(0,113,227,0.15);}
+.filter-bar svg{width:15px;height:15px;stroke:var(--gray-400);stroke-width:2;fill:none;flex-shrink:0;}
+.filter-bar input{flex:1;border:none;background:transparent;outline:none;font-size:15px;font-family:var(--font);color:var(--black);letter-spacing:-0.01em;}
+.filter-bar input::placeholder{color:var(--gray-400);}
+
+/* GRID */
 .cards-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;
-}
-
-/* ── CARD ── */
-.term-card{
-  background:var(--white);
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:0;
+  border-radius:var(--r);
+  overflow:hidden;
   border:1px solid var(--gray-200);
-  border-radius:var(--radius-card);
-  padding:28px;
+}
+.term-card{
+  background:#fff;
+  padding:28px 24px;
   cursor:pointer;
-  transition:var(--transition);
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow-card);
+  transition:background 0.18s var(--ease);
+  position:relative;
+  border-right:1px solid var(--gray-200);
+  border-bottom:1px solid var(--gray-200);
 }
-.term-card::before{
-  content:'';position:absolute;inset:0;
-  opacity:0;transition:opacity 0.35s;border-radius:var(--radius-card);
-}
-.term-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:transparent;}
-.term-card:hover::before{opacity:1;}
-
-/* Materia colores */
-.mat-algo::before{background:linear-gradient(135deg,rgba(0,113,227,0.06),rgba(29,78,216,0.06));}
-.mat-algo:hover{border-color:rgba(0,113,227,0.2);}
-.mat-algo .card-icon-bg{background:rgba(0,113,227,0.1);color:var(--mat-1);}
-.mat-algo .card-tag{background:rgba(0,113,227,0.1);color:var(--mat-1);}
-.mat-algo .card-num{color:var(--mat-1);}
-
-.mat-tgs::before{background:linear-gradient(135deg,rgba(5,150,105,0.06),rgba(4,120,87,0.06));}
-.mat-tgs:hover{border-color:rgba(5,150,105,0.2);}
-.mat-tgs .card-icon-bg{background:rgba(5,150,105,0.1);color:var(--mat-tgs);}
-.mat-tgs .card-tag{background:rgba(5,150,105,0.1);color:var(--mat-tgs);}
-.mat-tgs .card-num{color:var(--mat-tgs);}
-
-.mat-agil::before{background:linear-gradient(135deg,rgba(220,38,38,0.06),rgba(185,28,28,0.06));}
-.mat-agil:hover{border-color:rgba(220,38,38,0.2);}
-.mat-agil .card-icon-bg{background:rgba(220,38,38,0.1);color:var(--mat-agil);}
-.mat-agil .card-tag{background:rgba(220,38,38,0.1);color:var(--mat-agil);}
-.mat-agil .card-num{color:var(--mat-agil);}
-
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
-.card-icon-bg{
-  width:44px;height:44px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
-}
-.card-num{font-family:var(--font-display);font-size:13px;font-weight:700;opacity:0.5;}
+.term-card:hover{background:var(--gray-50);}
+.card-icon{font-size:28px;margin-bottom:16px;display:block;line-height:1;}
 .card-term{
-  font-family:var(--font-display);font-size:22px;font-weight:800;
-  letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px;color:var(--black);
+  font-size:19px;font-weight:600;
+  letter-spacing:-0.022em;
+  color:var(--black);margin-bottom:6px;
+  line-height:1.21053;
 }
-.card-hint{font-size:13px;color:var(--gray-400);line-height:1.4;margin-bottom:20px;}
-.card-footer{display:flex;align-items:center;justify-content:space-between;}
-.card-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:50px;letter-spacing:0.05em;}
-.card-arrow{
-  width:32px;height:32px;border-radius:50%;
-  background:var(--gray-100);border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:var(--transition);flex-shrink:0;
+.card-hint{
+  font-size:14px;color:var(--gray-400);
+  line-height:1.42857;letter-spacing:-0.01em;
+  margin-bottom:20px;
 }
-.term-card:hover .card-arrow{background:var(--black);color:#fff;}
-.card-arrow svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;transition:var(--transition);}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.card-badge{
+  font-size:11px;font-weight:500;letter-spacing:0.04em;
+  text-transform:uppercase;padding:4px 10px;border-radius:980px;flex-shrink:0;
+}
+.badge-algo{background:rgba(0,113,227,0.1);color:var(--mat-algo);}
+.badge-tgs{background:rgba(28,140,78,0.1);color:var(--mat-tgs);}
+.badge-agil{background:rgba(192,57,43,0.1);color:var(--mat-agil);}
+.card-cta{
+  font-size:14px;font-weight:400;
+  color:var(--blue);
+  display:flex;align-items:center;gap:3px;
+  white-space:nowrap;
+  transition:gap 0.18s var(--ease);
+}
+.term-card:hover .card-cta{gap:6px;}
+.card-cta svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;}
 
-/* ── MODAL ── */
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  z-index:2000;display:flex;align-items:center;justify-content:center;
-  padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s ease;
-}
-.modal-overlay.open{opacity:1;pointer-events:all;}
-.modal{
-  background:#fff;border-radius:28px;max-width:600px;width:100%;
-  max-height:85vh;overflow-y:auto;
-  box-shadow:0 40px 100px rgba(0,0,0,0.25);
-  transform:scale(0.94) translateY(20px);
-  transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-}
-.modal-overlay.open .modal{transform:scale(1) translateY(0);}
-.modal-header{padding:32px 32px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
-.modal-icon{
-  width:56px;height:56px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;
-}
-.modal-close{
-  width:36px;height:36px;border-radius:50%;background:var(--gray-100);
-  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:var(--transition);
-}
-.modal-close:hover{background:var(--gray-200);}
-.modal-close svg{width:16px;height:16px;stroke:var(--gray-600);stroke-width:2;fill:none;}
-.modal-meta{flex:1;}
-.modal-tag{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
-.modal-term{font-family:var(--font-display);font-size:30px;font-weight:800;letter-spacing:-0.03em;line-height:1.1;}
-.modal-body{padding:24px 32px 32px;}
-.modal-loading{
-  display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px 0;
-}
-.loader{
-  width:36px;height:36px;border-radius:50%;
-  border:2px solid var(--gray-200);border-top-color:var(--black);
-  animation:spin 0.8s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
-.loader-text{font-size:14px;color:var(--gray-400);}
-.modal-content-area{}
-.modal-section{margin-bottom:24px;}
-.modal-section:last-child{margin-bottom:0;}
-.modal-section-title{
-  font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--gray-400);margin-bottom:10px;
-  padding-bottom:8px;border-bottom:1px solid var(--gray-100);
-}
-.modal-definition{
-  font-size:16px;line-height:1.7;color:var(--gray-800);
-}
-.modal-example{
-  background:var(--gray-50);border-radius:12px;padding:16px;
-  font-size:14px;line-height:1.6;color:var(--gray-600);
-  border-left:3px solid var(--gray-200);
-}
-.modal-keywords{display:flex;flex-wrap:wrap;gap:8px;}
-.kw-pill{
-  padding:6px 12px;border-radius:50px;font-size:12px;font-weight:500;
-  background:var(--gray-100);color:var(--gray-600);
-}
-.modal-error{
-  text-align:center;padding:24px 0;
-  font-size:15px;color:var(--gray-600);
-}
-.modal-error .err-icon{font-size:36px;margin-bottom:12px;}
-.retry-btn{
-  margin-top:12px;padding:10px 24px;background:var(--black);color:#fff;
-  border:none;border-radius:50px;font-size:14px;cursor:pointer;
-  font-family:var(--font-body);transition:var(--transition);
-}
-.retry-btn:hover{opacity:0.85;}
+/* BG alternates */
+.bg-white{background:#fff;}
+.bg-gray{background:var(--gray-50);}
 
-/* ── ABOUT STRIP ── */
-.about-strip{
+/* ABOUT */
+.about-section{
   background:var(--black);color:#fff;
-  padding:100px 40px;text-align:center;position:relative;overflow:hidden;
+  padding:100px 24px;text-align:center;
 }
-.about-strip::before{
-  content:'GLOSARIO';
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--font-display);font-size:200px;font-weight:800;
-  color:rgba(255,255,255,0.03);letter-spacing:-0.05em;white-space:nowrap;pointer-events:none;
-}
-.about-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
-.about-strip .section-title{color:#fff;}
-.about-strip .section-desc{color:rgba(255,255,255,0.5);}
-.about-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px;}
+.about-section .section-title{color:#fff;}
+.about-section .section-desc{color:rgba(255,255,255,0.6);}
+.about-section .eyebrow{color:rgba(255,255,255,0.4);}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:36px;}
 .chip{
-  padding:10px 20px;border:1px solid rgba(255,255,255,0.15);border-radius:50px;
-  font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);
-  transition:var(--transition);cursor:default;
+  padding:8px 18px;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:980px;font-size:14px;
+  color:rgba(255,255,255,0.7);
+  transition:all 0.18s var(--ease);
 }
 .chip:hover{background:rgba(255,255,255,0.08);color:#fff;}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{
-  border-top:1px solid var(--gray-200);padding:40px;
+  background:#f5f5f7;
+  border-top:1px solid var(--gray-200);
+  padding:32px 24px;
   display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
+  flex-wrap:wrap;gap:12px;
 }
-.footer-logo{font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:-0.02em;}
-.footer-copy{font-size:13px;color:var(--gray-400);}
-.footer-credit{font-size:13px;color:var(--gray-400);}
-.footer-credit strong{color:var(--black);}
+.footer-logo{font-size:17px;font-weight:600;letter-spacing:-0.022em;color:var(--black);}
+.footer-txt{font-size:13px;color:var(--gray-400);}
 
-/* ── SEARCH FILTER ── */
-.search-filter-bar{
-  max-width:480px;margin:0 auto 48px;
-  display:flex;align-items:center;gap:10px;
-  background:var(--gray-100);border-radius:50px;
-  padding:10px 20px;border:1px solid transparent;
-  transition:var(--transition);
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.25s var(--ease);
 }
-.search-filter-bar:focus-within{background:#fff;border-color:var(--gray-200);box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-.search-filter-bar svg{width:16px;height:16px;stroke:var(--gray-400);flex-shrink:0;}
-.search-filter-bar input{flex:1;border:none;background:transparent;outline:none;font-size:15px;font-family:var(--font-body);}
-.search-filter-bar input::placeholder{color:var(--gray-400);}
-.no-results{text-align:center;padding:48px;color:var(--gray-400);font-size:15px;}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-pills{display:none;}
-  .hero-stats{gap:28px;}
-  .section{padding:64px 20px;}
-  .cards-grid{grid-template-columns:1fr;}
-  .about-strip{padding:64px 20px;}
-  footer{flex-direction:column;align-items:center;text-align:center;padding:32px 20px;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:#fff;
+  border-radius:20px;
+  max-width:580px;width:100%;
+  max-height:88vh;
+  overflow-y:auto;
+  box-shadow:0 32px 80px rgba(0,0,0,0.22),0 2px 8px rgba(0,0,0,0.1);
+  transform:translateY(24px) scale(0.97);
+  transition:transform 0.3s cubic-bezier(0.34,1.2,0.64,1);
+}
+.modal-overlay.open .modal{transform:translateY(0) scale(1);}
+.modal-top{
+  padding:24px 24px 0;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.modal-icon-wrap{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--gray-100);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.modal-meta{flex:1;}
+.modal-materia{
+  font-size:11px;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.modal-term-name{
+  font-size:28px;font-weight:700;
+  letter-spacing:-0.025em;line-height:1.07143;color:var(--black);
+}
+.modal-close{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--gray-100);border:none;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background 0.18s;
+}
+.modal-close:hover{background:var(--gray-200);}
+.modal-close svg{width:14px;height:14px;stroke:var(--gray-600);stroke-width:2;fill:none;}
+.modal-body{padding:24px;}
+.def-block{margin-bottom:20px;}
+.def-label{
+  font-size:11px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:6px;
+}
+.def-label::after{content:'';flex:1;height:1px;background:var(--gray-200);}
+.def-text{
+  font-size:16px;line-height:1.65;
+  color:var(--gray-800);letter-spacing:-0.015em;
+}
+.def-example{
+  background:var(--gray-50);border-radius:12px;
+  padding:14px 16px;
+  font-size:15px;line-height:1.55;
+  color:var(--gray-600);
+  border-left:3px solid var(--gray-300);
+  letter-spacing:-0.01em;
+}
+.kw-row{display:flex;flex-wrap:wrap;gap:6px;}
+.kw{
+  padding:5px 12px;border-radius:980px;
+  background:var(--gray-100);font-size:13px;
+  color:var(--gray-600);font-weight:400;
 }
 
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s var(--ease),transform 0.5s var(--ease);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:0.08s;}
-.reveal-delay-2{transition-delay:0.16s;}
-.reveal-delay-3{transition-delay:0.24s;}
+.d1{transition-delay:0.05s;}.d2{transition-delay:0.1s;}.d3{transition-delay:0.15s;}
+.no-results{text-align:center;padding:48px 24px;color:var(--gray-400);font-size:15px;}
+
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-pills{display:none;}
+  .hero{padding-left:16px;padding-right:16px;}
+  .hero-stats{gap:24px;}
+  .stat-n{font-size:32px;}
+  .section-wrap{padding:0 16px 60px;}
+  .cards-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;align-items:center;text-align:center;}
+}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
   <a class="nav-logo" href="#">
-    <span>
-      <svg viewBox="0 0 14 14"><path d="M7 1L13 4V10L7 13L1 10V4Z"/></svg>
-    </span>
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 16 16"><path d="M8 1L15 4.5V11.5L8 15L1 11.5V4.5Z"/></svg>
+    </div>
     GlosarioIA
   </a>
   <div class="nav-pills">
-    <button class="nav-pill active" onclick="scrollToSection('algo')">Algoritmos</button>
-    <button class="nav-pill" onclick="scrollToSection('tgs')">T. de Sistemas</button>
-    <button class="nav-pill" onclick="scrollToSection('agil')">Met. Ágiles</button>
+    <button class="nav-pill active" onclick="goTo('sec-algo',this)">Algoritmos</button>
+    <button class="nav-pill" onclick="goTo('sec-tgs',this)">T. de Sistemas</button>
+    <button class="nav-pill" onclick="goTo('sec-agil',this)">Met. Ágiles</button>
   </div>
-  <div class="nav-search">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input id="globalSearch" type="text" placeholder="Buscar término..." oninput="filterGlobal(this.value)">
+  <div class="nav-right">
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="globalSearch" type="text" placeholder="Buscar término…" oninput="globalFilter(this.value)">
+    </div>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
-<section class="hero" id="top">
-  <div class="hero-badge"><span class="dot"></span> Powered by Claude IA · 3 materias</div>
-  <h1 class="hero-title">Glosario<br><span class="accent-word">Interactivo</span></h1>
-  <p class="hero-sub">Haz clic en cualquier tarjeta y la IA generará una definición completa, ejemplo y palabras clave al instante.</p>
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span> Powered by Claude AI &middot; 3 materias</div>
+  <h1 class="hero-title">Glosario<br><span class="hero-title-blue">Interactivo</span></h1>
+  <p class="hero-sub">Haz clic en cualquier tarjeta para ver la definición completa, un ejemplo práctico y palabras clave.</p>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-n">28</div><div class="stat-l">Términos</div></div>
-    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Materias</div></div>
-    <div class="stat"><div class="stat-n">IA</div><div class="stat-l">Definiciones</div></div>
+    <div><div class="stat-n">28</div><div class="stat-l">Términos</div></div>
+    <div><div class="stat-n">3</div><div class="stat-l">Materias</div></div>
+    <div><div class="stat-n">IA</div><div class="stat-l">Definiciones</div></div>
   </div>
   <div class="hero-btns">
-    <button class="btn-primary" onclick="scrollToSection('algo')">
+    <button class="btn-blue" onclick="goTo('sec-algo',null)">
       Explorar términos
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </button>
-    <button class="btn-secondary" onclick="scrollToSection('about')">¿Cómo funciona?</button>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+    <button class="btn-outline" onclick="goTo('about',null)">Como funciona</button>
   </div>
 </section>
 
-<!-- ── MARQUEE ── -->
-<div class="materias-bar">
-  <div class="materias-track" id="marqueeTrack"></div>
-</div>
-
-<!-- ── SECCIÓN ALGORITMOS ── -->
-<div style="background:var(--white);padding:80px 0 0;" id="algo">
-<div class="section">
-  <div class="section-header reveal">
-    <div class="section-eyebrow" style="color:var(--mat-1);">01 / Algoritmos</div>
-    <h2 class="section-title">Fundamentos de<br>Algoritmos</h2>
-    <p class="section-desc">Los conceptos esenciales del pensamiento algorítmico y el ciclo de desarrollo.</p>
-  </div>
-  <div class="search-filter-bar reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Filtrar en esta sección..." oninput="filterSection('algo-grid', this.value)">
-  </div>
-  <div class="cards-grid" id="algo-grid"></div>
-</div>
-</div>
-
-<!-- ── SECCIÓN TGS ── -->
-<div style="background:var(--gray-50);padding:80px 0 0;" id="tgs">
-<div class="section">
-  <div class="section-header reveal">
-    <div class="section-eyebrow" style="color:var(--mat-tgs);">02 / Teoría General de Sistemas</div>
-    <h2 class="section-title">Teoría General<br>de Sistemas</h2>
-    <p class="section-desc">Conceptos que explican cómo los sistemas interactúan con su entorno.</p>
-  </div>
-  <div class="search-filter-bar reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Filtrar en esta sección..." oninput="filterSection('tgs-grid', this.value)">
-  </div>
-  <div class="cards-grid" id="tgs-grid"></div>
-</div>
-</div>
-
-<!-- ── SECCIÓN ÁGIL ── -->
-<div style="background:var(--white);padding:80px 0 0;" id="agil">
-<div class="section">
-  <div class="section-header reveal">
-    <div class="section-eyebrow" style="color:var(--mat-agil);">03 / Metodologías Ágiles</div>
-    <h2 class="section-title">Metodologías<br>Ágiles</h2>
-    <p class="section-desc">Marcos de trabajo modernos para el desarrollo ágil de software.</p>
-  </div>
-  <div class="search-filter-bar reveal">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Filtrar en esta sección..." oninput="filterSection('agil-grid', this.value)">
-  </div>
-  <div class="cards-grid" id="agil-grid"></div>
-</div>
-</div>
-
-<!-- ── ABOUT STRIP ── -->
-<section class="about-strip" id="about">
-  <div class="about-inner">
-    <div class="section-header">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">¿Cómo funciona?</div>
-      <h2 class="section-title">IA que define<br>en tiempo real</h2>
-      <p class="section-desc">Cada vez que haces clic en una tarjeta, se consulta a Claude — una IA avanzada — que genera una definición personalizada, un ejemplo práctico y palabras clave del término.</p>
+<div class="bg-white" id="sec-algo">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow" style="color:var(--mat-algo);">01 — Algoritmos</div>
+      <h2 class="section-title">Fundamentos de<br>Algoritmos</h2>
+      <p class="section-desc">Los pilares del pensamiento algoritmico y el ciclo de vida de un programa.</p>
     </div>
-    <div class="about-chips">
-      <div class="chip">⚡ Respuesta instantánea</div>
-      <div class="chip">📖 Definición completa</div>
-      <div class="chip">💡 Ejemplo práctico</div>
-      <div class="chip">🏷️ Palabras clave</div>
-      <div class="chip">🤖 Powered by Claude</div>
-      <div class="chip">🎓 Enfoque académico</div>
+    <div class="filter-bar reveal">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Filtrar en Algoritmos…" oninput="filterSection('grid-algo',this.value)">
+    </div>
+    <div class="cards-grid" id="grid-algo"></div>
+  </div>
+</div>
+
+<div class="bg-gray" id="sec-tgs">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow" style="color:var(--mat-tgs);">02 — Teoria General de Sistemas</div>
+      <h2 class="section-title">Teoria General<br>de Sistemas</h2>
+      <p class="section-desc">Como los sistemas se estructuran, interactuan y evolucionan en su entorno.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Filtrar en T. de Sistemas…" oninput="filterSection('grid-tgs',this.value)">
+    </div>
+    <div class="cards-grid" id="grid-tgs"></div>
+  </div>
+</div>
+
+<div class="bg-white" id="sec-agil">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow" style="color:var(--mat-agil);">03 — Metodologias Agiles</div>
+      <h2 class="section-title">Metodologias<br>Agiles</h2>
+      <p class="section-desc">Marcos modernos para entregar software de calidad de manera iterativa.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Filtrar en Met. Agiles…" oninput="filterSection('grid-agil',this.value)">
+    </div>
+    <div class="cards-grid" id="grid-agil"></div>
+  </div>
+</div>
+
+<section class="about-section" id="about">
+  <div style="max-width:680px;margin:0 auto;">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.4);">Como funciona</div>
+    <h2 class="section-title" style="color:#fff;margin-bottom:12px;">Definiciones con<br>inteligencia artificial</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;">Cada tarjeta contiene una definicion academica completa con ejemplo practico y palabras clave contextuales generadas con Claude AI.</p>
+    <div class="chips">
+      <div class="chip">Definicion completa</div>
+      <div class="chip">Ejemplo practico</div>
+      <div class="chip">Palabras clave</div>
+      <div class="chip">Claude AI</div>
+      <div class="chip">Busqueda en tiempo real</div>
+      <div class="chip">Nivel academico</div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">GlosarioIA</div>
-  <div class="footer-copy">© 2025 · Glosario Interactivo con IA</div>
-  <div class="footer-credit">Definiciones por <strong>Claude AI</strong></div>
+  <div class="footer-txt">2025 &middot; Glosario Interactivo</div>
+  <div class="footer-txt">Definiciones por <strong style="color:var(--black);">Claude AI</strong></div>
 </footer>
 
-<!-- ── MODAL ── -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+<div class="modal-overlay" id="overlay" onclick="closeOnBg(event)">
   <div class="modal" id="modal">
-    <div class="modal-header">
-      <div class="modal-icon" id="modalIcon"></div>
+    <div class="modal-top">
+      <div class="modal-icon-wrap" id="mIcon"></div>
       <div class="modal-meta">
-        <div class="modal-tag" id="modalTag"></div>
-        <div class="modal-term" id="modalTerm"></div>
+        <div class="modal-materia" id="mMateria"></div>
+        <div class="modal-term-name" id="mTerm"></div>
       </div>
-      <button class="modal-close" onclick="closeModalDirect()">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="modal-close" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <div class="modal-body" id="modalBody">
-      <div class="modal-loading"><div class="loader"></div><div class="loader-text">La IA está pensando...</div></div>
-    </div>
+    <div class="modal-body" id="mBody"></div>
   </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════
-   DATA
-═══════════════════════════════════════ */
-const DATA = {
-  algo:{
-    label:'Algoritmos',tag:'algo',color:'var(--mat-1)',bgClass:'mat-algo',
-    tagLabel:'Algoritmos',
-    terms:[
-      {term:'Algoritmo',hint:'Secuencia ordenada de instrucciones',icon:'🔢'},
-      {term:'Entrada',hint:'Datos que recibe un algoritmo',icon:'📥'},
-      {term:'Proceso',hint:'Transformación de datos',icon:'⚙️'},
-      {term:'Salida',hint:'Resultado del algoritmo',icon:'📤'},
-      {term:'Planificación',hint:'Diseño previo a la solución',icon:'📋'},
-      {term:'Edición',hint:'Escritura del código fuente',icon:'✏️'},
-      {term:'Ejecutar y Compilar',hint:'Correr y traducir el programa',icon:'▶️'},
-      {term:'Corregir',hint:'Depuración de errores',icon:'🐛'},
-      {term:'Documentar',hint:'Registrar el funcionamiento del código',icon:'📝'},
-    ]
+const DEFS = {
+  'Algoritmo':{
+    def:'Un algoritmo es un conjunto finito, ordenado y preciso de instrucciones que permiten resolver un problema o realizar una tarea especifica. Cada paso debe ser claro, ejecutable y conducir a un resultado en un tiempo finito. Los algoritmos son la base de toda la programacion y el pensamiento computacional.',
+    ejemplo:'Para ordenar una lista de calificaciones de mayor a menor, el algoritmo compara pares de numeros repetidamente y los intercambia hasta que la lista queda completamente ordenada.',
+    kws:['instrucciones','pasos','logica','problema','solucion','finito','computacion']
   },
-  tgs:{
-    label:'T. General de Sistemas',tag:'tgs',color:'var(--mat-tgs)',bgClass:'mat-tgs',
-    tagLabel:'T. de Sistemas',
-    terms:[
-      {term:'Sistema Abierto',hint:'Intercambia con su entorno',icon:'🔓'},
-      {term:'Sistema Cerrado',hint:'No interactúa con el exterior',icon:'🔒'},
-      {term:'Entorno',hint:'Contexto que rodea al sistema',icon:'🌐'},
-      {term:'Entrada (Input)',hint:'Recursos que ingresan al sistema',icon:'⬇️'},
-      {term:'Proceso (Process)',hint:'Transformación dentro del sistema',icon:'🔄'},
-      {term:'Salida (Output)',hint:'Producto generado por el sistema',icon:'⬆️'},
-      {term:'Retroalimentación (Feedback)',hint:'Información de retorno al sistema',icon:'🔁'},
-      {term:'Sistema Natural',hint:'Existe sin intervención humana',icon:'🌿'},
-      {term:'Sistema Artificial',hint:'Creado por el ser humano',icon:'🤖'},
-      {term:'Sistema Social',hint:'Formado por personas e interacciones',icon:'👥'},
-      {term:'Sistema Tecnológico',hint:'Basado en herramientas y técnicas',icon:'💻'},
-      {term:'Sinergia',hint:'El todo es más que la suma de partes',icon:'✨'},
-      {term:'Totalidad',hint:'El sistema actúa como un todo',icon:'🎯'},
-      {term:'Inter-relación',hint:'Dependencia entre componentes',icon:'🔗'},
-    ]
+  'Entrada':{
+    def:'La entrada es el conjunto de datos o informacion que un programa o algoritmo recibe para comenzar su procesamiento. Sin datos de entrada, el sistema no tiene informacion sobre que operar. Los datos de entrada pueden provenir del usuario, de archivos, de sensores o de bases de datos.',
+    ejemplo:'En una calculadora, cuando el usuario escribe los numeros 8 y 3, esos valores son la entrada que el programa procesara para devolver un resultado.',
+    kws:['datos','input','usuario','informacion','variables','parametros','lectura']
   },
-  agil:{
-    label:'Metodologías Ágiles',tag:'agil',color:'var(--mat-agil)',bgClass:'mat-agil',
-    tagLabel:'Met. Ágiles',
-    terms:[
-      {term:'Metodologías Ágiles',hint:'Enfoques iterativos de desarrollo',icon:'🚀'},
-      {term:'SCRUM',hint:'Marco ágil basado en sprints',icon:'🏉'},
-      {term:'Entregables',hint:'Producto terminado por sprint',icon:'📦'},
-      {term:'Sprint',hint:'Ciclo de desarrollo corto',icon:'⏱️'},
-      {term:'Backlog',hint:'Lista priorizada de tareas',icon:'📋'},
-      {term:'XP – Programación Extrema',hint:'Ágil centrado en calidad de código',icon:'⚡'},
-      {term:'RAD – Desarrollo Rápido',hint:'Prototipado y entregas veloz',icon:'🏎️'},
-    ]
+  'Proceso':{
+    def:'El proceso es la fase central del algoritmo donde los datos de entrada son transformados, analizados o calculados mediante operaciones logicas y matematicas para producir un resultado. Esta etapa incluye todas las instrucciones, condiciones, ciclos y calculos que conforman la logica del programa.',
+    ejemplo:'En un programa que calcula el promedio de un estudiante, el proceso suma todas las notas y divide el total entre la cantidad de materias evaluadas.',
+    kws:['transformacion','calculo','operaciones','logica','ciclos','condiciones','procesamiento']
+  },
+  'Salida':{
+    def:'La salida es el resultado final que genera un algoritmo o programa tras haber procesado los datos de entrada. Representa la respuesta o producto del sistema, que puede mostrarse en pantalla, guardarse en un archivo, enviarse a otro sistema o activar un dispositivo externo.',
+    ejemplo:'Despues de calcular el promedio de un estudiante, el programa muestra en pantalla el mensaje "Tu promedio es: 8.5", que constituye la salida del proceso.',
+    kws:['resultado','output','respuesta','visualizacion','impresion','retorno','producto']
+  },
+  'Planificacion':{
+    def:'La planificacion en programacion es la etapa previa al desarrollo donde se analiza el problema, se definen los objetivos, se disena la estructura del algoritmo y se establece el flujo de trabajo. Incluye la elaboracion de diagramas de flujo, pseudocodigo y la identificacion de entradas, procesos y salidas.',
+    ejemplo:'Antes de programar una aplicacion para registrar inventario, el desarrollador dibuja un diagrama de flujo que muestra como se ingresaran los productos, como se actualizaran las existencias y que reportes generara.',
+    kws:['diseno','analisis','diagrama de flujo','pseudocodigo','objetivos','estructura','organizacion']
+  },
+  'Edicion':{
+    def:'La edicion es el proceso de escribir el codigo fuente del programa en un lenguaje de programacion especifico, siguiendo la logica disenada durante la planificacion. Esta etapa se realiza en un editor de codigo o entorno de desarrollo integrado (IDE) y requiere conocer la sintaxis del lenguaje elegido.',
+    ejemplo:'Un programador escribe en Python el codigo de una funcion que calcula el area de un circulo, utilizando el IDE Visual Studio Code con resaltado de sintaxis.',
+    kws:['codigo fuente','IDE','sintaxis','lenguaje de programacion','escritura','editor','instrucciones']
+  },
+  'Ejecutar y Compilar':{
+    def:'Compilar es el proceso de traducir el codigo fuente escrito por el programador a codigo maquina que el procesador puede entender y ejecutar. Ejecutar significa correr el programa compilado para que realice las tareas programadas. En lenguajes interpretados como Python, ambas etapas ocurren simultaneamente.',
+    ejemplo:'Al presionar Ejecutar en un IDE de Java, el compilador traduce el codigo a bytecode, la JVM lo interpreta y el programa comienza a funcionar mostrando resultados en pantalla.',
+    kws:['compilador','codigo maquina','interprete','bytecode','ejecucion','JVM','traduccion']
+  },
+  'Corregir':{
+    def:'Corregir, tambien llamado depuracion o debugging, es el proceso de identificar, analizar y eliminar errores (bugs) en el codigo de un programa. Estos errores pueden ser sintacticos, logicos o de tiempo de ejecucion. Un debugger permite ejecutar el programa paso a paso para localizar el problema.',
+    ejemplo:'Al detectar que una funcion retorna valores incorrectos, el programador usa el debugger de su IDE para revisar el valor de las variables en cada paso y descubre que uso el operador incorrecto.',
+    kws:['debugging','bug','error','depuracion','logico','sintactico','correccion']
+  },
+  'Documentar':{
+    def:'Documentar es el proceso de registrar de manera clara y organizada el funcionamiento, la estructura y el proposito de un programa o algoritmo. Una buena documentacion incluye comentarios en el codigo, manuales de usuario, descripciones de funciones y guias de instalacion, facilitando el mantenimiento y la colaboracion.',
+    ejemplo:'Un desarrollador agrega comentarios en cada funcion de su codigo explicando que hace, que parametros recibe y que valor retorna, ademas de redactar un archivo README con instrucciones de uso.',
+    kws:['comentarios','README','manual','docstring','mantenimiento','legibilidad','descripcion']
+  },
+  'Sistema Abierto':{
+    def:'Un sistema abierto es aquel que intercambia continuamente materia, energia e informacion con su entorno externo. Esta interaccion constante permite al sistema adaptarse, aprender y evolucionar en respuesta a cambios del exterior. La mayoria de los sistemas biologicos, sociales y organizacionales son sistemas abiertos.',
+    ejemplo:'Una empresa es un sistema abierto porque recibe insumos del exterior (capital, empleados, materias primas), los procesa internamente y devuelve al entorno productos, servicios e impuestos.',
+    kws:['interaccion','entorno','adaptacion','intercambio','evolucion','feedback','organismo']
+  },
+  'Sistema Cerrado':{
+    def:'Un sistema cerrado es aquel que no intercambia materia ni informacion con su entorno exterior; opera de forma aislada e independiente. En la practica, los sistemas totalmente cerrados son teoricos, ya que todos los sistemas reales intercambian al menos energia con el medio.',
+    ejemplo:'Un reloj mecanico clasico, una vez dado cuerda, opera internamente sin recibir nuevas entradas del exterior; sus engranajes funcionan de manera autonoma hasta que se agota la energia almacenada.',
+    kws:['aislado','autonomo','independiente','sin intercambio','teorico','energia','autosuficiente']
+  },
+  'Entorno':{
+    def:'El entorno es todo aquello que rodea a un sistema y con lo cual puede interactuar. Comprende el conjunto de elementos externos que influyen en el comportamiento del sistema sin pertenecer a el. Un cambio en el entorno puede generar respuestas de adaptacion dentro del sistema.',
+    ejemplo:'Para un sistema educativo, el entorno incluye factores como las politicas gubernamentales, la economia, los avances tecnologicos y las tendencias culturales que influyen en como se imparte la educacion.',
+    kws:['exterior','contexto','ambiente','influencia','factores externos','limite','ecosistema']
+  },
+  'Entrada (Input)':{
+    def:'En la Teoria General de Sistemas, la entrada (input) es cualquier recurso, dato, energia o materia que ingresa al sistema desde su entorno para ser procesado. Las entradas son los ingredientes que el sistema necesita para funcionar y producir sus salidas.',
+    ejemplo:'En un sistema de manufactura, las entradas son las materias primas, la energia electrica, la mano de obra y los disenos tecnicos que el sistema transforma en productos terminados.',
+    kws:['recursos','datos','materia prima','insumos','importacion','flujo','recepcion']
+  },
+  'Proceso (Process)':{
+    def:'El proceso es la transformacion interna que realiza el sistema sobre sus entradas para generar salidas. Es el nucleo funcional del sistema donde se aplican reglas, operaciones y mecanismos que convierten los insumos en productos o resultados.',
+    ejemplo:'En un sistema hospitalario, el proceso incluye la evaluacion medica, el diagnostico, el tratamiento y la recuperacion del paciente, transformando la entrada (paciente enfermo) en salida (paciente curado).',
+    kws:['transformacion','operaciones','mecanismo','conversion','tratamiento','funcion','nucleo']
+  },
+  'Salida (Output)':{
+    def:'La salida (output) es el producto, resultado o consecuencia que genera el sistema tras procesar sus entradas. Las salidas pueden ser bienes, servicios, informacion, energia o residuos que el sistema devuelve al entorno. La calidad de las salidas refleja la eficiencia del sistema.',
+    ejemplo:'En un sistema educativo, las salidas son los egresados formados, el conocimiento generado, las publicaciones academicas y los profesionales que se integran al mercado laboral.',
+    kws:['producto','resultado','exportacion','bienes','servicios','eficiencia','retorno']
+  },
+  'Retroalimentacion (Feedback)':{
+    def:'La retroalimentacion es el mecanismo mediante el cual el sistema recibe informacion sobre sus propias salidas para ajustar o corregir su comportamiento. El feedback negativo reduce la desviacion del sistema respecto a su objetivo, mientras que el positivo amplifica los cambios.',
+    ejemplo:'Un termostato que detecta que la temperatura bajo por debajo de lo configurado y activa la calefaccion es un ejemplo clasico de retroalimentacion negativa que mantiene el sistema en equilibrio.',
+    kws:['control','regulacion','ajuste','homeostasis','feedback negativo','feedback positivo','correccion']
+  },
+  'Sistema Natural':{
+    def:'Un sistema natural es aquel que existe y se forma sin intervencion humana, creado por procesos de la naturaleza. Estos sistemas siguen leyes fisicas, quimicas y biologicas que los regulan. Son generalmente complejos, interdependientes y autorregulados.',
+    ejemplo:'El sistema solar, los ecosistemas forestales, el ciclo del agua y el sistema circulatorio del ser humano son ejemplos de sistemas naturales que funcionan sin diseno humano.',
+    kws:['naturaleza','biologico','ecosistema','organico','autorregulado','espontaneo','evolucion']
+  },
+  'Sistema Artificial':{
+    def:'Un sistema artificial es el creado, disenado y construido por el ser humano con un proposito especifico. Estos sistemas son el resultado de la planificacion intencional y suelen estar orientados a satisfacer necesidades humanas o resolver problemas concretos.',
+    ejemplo:'Una computadora, una red de transporte publico, un sistema de irrigacion y una base de datos son sistemas artificiales disenados por personas para funcionar de manera eficiente.',
+    kws:['disenado','construido','intencional','tecnologico','ingenieria','proposito','creado']
+  },
+  'Sistema Social':{
+    def:'Un sistema social es aquel conformado por personas, grupos e instituciones que interactuan entre si mediante normas, valores, comunicacion y estructuras de poder. Los sistemas sociales emergen de las relaciones humanas y evolucionan con el tiempo segun los cambios culturales y contextuales.',
+    ejemplo:'Una universidad es un sistema social compuesto por estudiantes, docentes, administrativos y directivos, que interactuan mediante reglamentos, roles definidos y procesos academicos.',
+    kws:['sociedad','instituciones','normas','cultura','interaccion','grupos','relaciones']
+  },
+  'Sistema Tecnologico':{
+    def:'Un sistema tecnologico es el conjunto de herramientas, tecnicas, dispositivos y conocimientos organizados para lograr un objetivo productivo o de servicio. Combina componentes fisicos (hardware) y logicos (software) junto con procedimientos y personas que los operan.',
+    ejemplo:'Internet es un sistema tecnologico que integra servidores, cables de fibra optica, protocolos de comunicacion y millones de dispositivos para permitir el intercambio global de informacion.',
+    kws:['tecnologia','hardware','software','herramientas','innovacion','digital','infraestructura']
+  },
+  'Sinergia':{
+    def:'La sinergia es el principio que establece que el resultado obtenido por la accion conjunta de los componentes de un sistema es mayor que la simple suma de sus resultados individuales. En sistemas, significa que la colaboracion e integracion generan un valor adicional que ningun elemento podria producir solo.',
+    ejemplo:'Un equipo de futbol donde cada jugador cumple su rol especifico logra victorias que no podrian alcanzar individualmente, ya que la coordinacion genera un rendimiento superior al de cada jugador por separado.',
+    kws:['cooperacion','totalidad','integracion','emergencia','valor anadido','colectivo','complementariedad']
+  },
+  'Totalidad':{
+    def:'El principio de totalidad establece que un sistema debe analizarse como un todo integrado y no como la suma de sus partes aisladas. Los cambios en cualquier componente afectan a todo el sistema, y las propiedades del conjunto no pueden deducirse simplemente estudiando cada elemento por separado.',
+    ejemplo:'Estudiar el cuerpo humano solo organo por organo no permite entender como funciona el organismo completo; la salud del cuerpo depende de la interaccion integral de todos sus sistemas.',
+    kws:['holismo','globalidad','integracion','interdependencia','emergencia','conjunto','perspectiva']
+  },
+  'Inter-relacion':{
+    def:'La inter-relacion describe los vinculos, conexiones y dependencias que existen entre los diferentes componentes de un sistema. Estas relaciones determinan como fluye la informacion, la energia o la materia entre las partes y como los cambios en un elemento repercuten en los demas.',
+    ejemplo:'En un sistema de produccion, si el departamento de compras no provee materiales a tiempo, la produccion se detiene, lo que retrasa las entregas al cliente; todas las areas estan inter-relacionadas.',
+    kws:['conexion','dependencia','vinculo','flujo','comunicacion','red','interdependencia']
+  },
+  'Metodologias Agiles':{
+    def:'Las metodologias agiles son enfoques de desarrollo de software basados en la entrega iterativa e incremental de valor, la colaboracion constante con el cliente y la capacidad de adaptarse rapidamente a los cambios. Surgieron como respuesta a los metodos tradicionales rigidos y quedaron plasmadas en el Manifiesto Agil de 2001.',
+    ejemplo:'Un equipo de desarrollo entrega una version funcional de su aplicacion cada dos semanas, incorporando el feedback del cliente en cada ciclo en lugar de esperar meses para mostrar un producto terminado.',
+    kws:['iterativo','incremental','adaptacion','colaboracion','Manifiesto Agil','sprint','valor']
+  },
+  'SCRUM':{
+    def:'SCRUM es un marco de trabajo agil que organiza el desarrollo en ciclos cortos llamados sprints (1 a 4 semanas). Define roles claros (Product Owner, Scrum Master, Equipo de Desarrollo) y ceremonias especificas (Sprint Planning, Daily Scrum, Sprint Review, Retrospectiva) para maximizar la productividad y transparencia del equipo.',
+    ejemplo:'Un equipo de cinco desarrolladores trabaja en sprints de dos semanas: el lunes planifican las tareas del sprint, cada dia realizan una reunion de 15 minutos y al final del sprint presentan el incremento al cliente.',
+    kws:['sprint','Product Owner','Scrum Master','daily','backlog','retrospectiva','ceremonias']
+  },
+  'Entregables':{
+    def:'En el contexto agil, los entregables son los productos funcionales o incrementos de valor que el equipo entrega al cliente al final de cada sprint o iteracion. A diferencia de los proyectos tradicionales, los entregables agiles son parciales pero funcionales, permitiendo obtener retroalimentacion temprana y continua.',
+    ejemplo:'Al final del segundo sprint, el equipo entrega un modulo de autenticacion completamente funcional que el cliente puede probar y aprobar, aunque la aplicacion completa aun no este terminada.',
+    kws:['incremento','producto funcional','sprint','valor','retroalimentacion','entrega parcial','validacion']
+  },
+  'Sprint':{
+    def:'Un sprint es el ciclo de trabajo basico en SCRUM, con una duracion fija de entre 1 y 4 semanas, durante el cual el equipo desarrolla un conjunto especifico de funcionalidades seleccionadas del Product Backlog. Al finalizar cada sprint se obtiene un incremento potencialmente entregable del producto.',
+    ejemplo:'Durante un sprint de dos semanas, el equipo se compromete a desarrollar las funcionalidades de busqueda y filtrado de una tienda en linea, al termino del cual estas caracteristicas funcionan correctamente.',
+    kws:['ciclo','iteracion','tiempo fijo','planificacion','SCRUM','incremento','compromisos']
+  },
+  'Backlog':{
+    def:'El backlog (o Product Backlog) es una lista ordenada y priorizada de todas las funcionalidades, mejoras, correcciones y tareas que se desea implementar en el producto. Es gestionado por el Product Owner y representa la unica fuente de trabajo para el equipo de desarrollo; evoluciona constantemente.',
+    ejemplo:'El backlog de una app de delivery incluye historias de usuario como "el cliente puede rastrear su pedido en tiempo real", "el restaurante puede actualizar su menu" y "el repartidor recibe notificaciones", ordenadas por prioridad de negocio.',
+    kws:['lista de tareas','priorizacion','Product Owner','historias de usuario','refinamiento','planificacion','gestion']
+  },
+  'XP - Programacion Extrema':{
+    def:'XP (Extreme Programming) es una metodologia agil centrada en mejorar la calidad del software y la capacidad de respuesta ante cambios en los requisitos. Sus practicas clave incluyen el desarrollo guiado por pruebas (TDD), la programacion en pares, la integracion continua y las entregas frecuentes de pequenos incrementos.',
+    ejemplo:'Dos programadores trabajan juntos en la misma computadora (pair programming): uno escribe el codigo y el otro lo revisa en tiempo real, alternando roles periodicamente, lo que reduce errores y mejora la calidad del codigo.',
+    kws:['TDD','pair programming','integracion continua','refactorizacion','pruebas','calidad','iteraciones cortas']
+  },
+  'RAD - Desarrollo Rapido':{
+    def:'RAD (Rapid Application Development) es una metodologia de desarrollo de software que prioriza la velocidad de entrega mediante el uso de prototipado rapido, ciclos de desarrollo cortos y la participacion activa del usuario durante todo el proceso. Reduce el tiempo de desarrollo al minimizar la planificacion formal y centrarse en iteraciones rapidas.',
+    ejemplo:'Para desarrollar un sistema de facturacion urgente, el equipo construye un prototipo basico en una semana, lo presenta al cliente, recoge su feedback, lo refina y repite el ciclo hasta obtener el sistema final en pocas semanas.',
+    kws:['prototipado','velocidad','iteracion','usuario activo','entrega rapida','ciclos cortos','adaptacion']
   }
 };
 
-/* ═══════════════════════════════════════
-   RENDER CARDS
-═══════════════════════════════════════ */
-function renderCards(){
-  Object.entries(DATA).forEach(([key,mat])=>{
-    const grid=document.getElementById(key+'-grid');
-    mat.terms.forEach((t,i)=>{
-      const num=String(i+1).padStart(2,'0');
+const TERMS = {
+  algo:[
+    {term:'Algoritmo',icon:'🔢',hint:'Secuencia finita de instrucciones para resolver un problema'},
+    {term:'Entrada',icon:'📥',hint:'Datos que recibe un algoritmo o programa'},
+    {term:'Proceso',icon:'⚙️',hint:'Transformacion de los datos de entrada'},
+    {term:'Salida',icon:'📤',hint:'Resultado generado tras el procesamiento'},
+    {term:'Planificacion',icon:'📋',hint:'Diseno y analisis previo a la codificacion'},
+    {term:'Edicion',icon:'✏️',hint:'Escritura del codigo fuente del programa'},
+    {term:'Ejecutar y Compilar',icon:'▶️',hint:'Traducir y correr el programa'},
+    {term:'Corregir',icon:'🐛',hint:'Depuracion y eliminacion de errores'},
+    {term:'Documentar',icon:'📝',hint:'Registrar el funcionamiento del codigo'},
+  ],
+  tgs:[
+    {term:'Sistema Abierto',icon:'🔓',hint:'Intercambia materia e informacion con su entorno'},
+    {term:'Sistema Cerrado',icon:'🔒',hint:'Opera de forma aislada sin intercambio exterior'},
+    {term:'Entorno',icon:'🌐',hint:'Todo lo que rodea e influye en el sistema'},
+    {term:'Entrada (Input)',icon:'⬇️',hint:'Recursos que ingresan al sistema desde el exterior'},
+    {term:'Proceso (Process)',icon:'🔄',hint:'Transformacion interna de las entradas'},
+    {term:'Salida (Output)',icon:'⬆️',hint:'Producto generado por el sistema'},
+    {term:'Retroalimentacion (Feedback)',icon:'🔁',hint:'Informacion de retorno para ajustar el sistema'},
+    {term:'Sistema Natural',icon:'🌿',hint:'Existe sin intervencion del ser humano'},
+    {term:'Sistema Artificial',icon:'🤖',hint:'Disenado y construido por personas'},
+    {term:'Sistema Social',icon:'👥',hint:'Formado por personas e instituciones que interactuan'},
+    {term:'Sistema Tecnologico',icon:'💻',hint:'Integra herramientas y tecnicas con un proposito'},
+    {term:'Sinergia',icon:'✨',hint:'El todo produce mas que la suma de las partes'},
+    {term:'Totalidad',icon:'🎯',hint:'El sistema debe analizarse como un conjunto integrado'},
+    {term:'Inter-relacion',icon:'🔗',hint:'Vinculos y dependencias entre componentes'},
+  ],
+  agil:[
+    {term:'Metodologias Agiles',icon:'🚀',hint:'Enfoques iterativos e incrementales de desarrollo'},
+    {term:'SCRUM',icon:'🏉',hint:'Marco agil basado en sprints y roles definidos'},
+    {term:'Entregables',icon:'📦',hint:'Productos funcionales al final de cada sprint'},
+    {term:'Sprint',icon:'⏱️',hint:'Ciclo fijo de trabajo en SCRUM'},
+    {term:'Backlog',icon:'📋',hint:'Lista priorizada de tareas del producto'},
+    {term:'XP - Programacion Extrema',icon:'⚡',hint:'Agil centrado en calidad y pruebas continuas'},
+    {term:'RAD - Desarrollo Rapido',icon:'🏎️',hint:'Prototipado rapido y ciclos de entrega cortos'},
+  ]
+};
+
+const BADGE_CLASS={algo:'badge-algo',tgs:'badge-tgs',agil:'badge-agil'};
+const BADGE_LABEL={algo:'Algoritmos',tgs:'T. de Sistemas',agil:'Met. Agiles'};
+const BADGE_COLOR={algo:'var(--mat-algo)',tgs:'var(--mat-tgs)',agil:'var(--mat-agil)'};
+
+function renderAll(){
+  ['algo','tgs','agil'].forEach(key=>{
+    const grid=document.getElementById('grid-'+key);
+    TERMS[key].forEach((t,i)=>{
       const card=document.createElement('div');
-      card.className=`term-card ${mat.bgClass} reveal reveal-delay-${(i%3)+1}`;
-      card.dataset.term=t.term.toLowerCase();
+      card.className='term-card reveal d'+((i%3)+1);
+      card.dataset.search=t.term.toLowerCase();
       card.innerHTML=`
-        <div class="card-top">
-          <div class="card-icon-bg">${t.icon}</div>
-          <span class="card-num">${num}</span>
-        </div>
+        <span class="card-icon">${t.icon}</span>
         <div class="card-term">${t.term}</div>
         <div class="card-hint">${t.hint}</div>
         <div class="card-footer">
-          <span class="card-tag">${mat.tagLabel}</span>
-          <button class="card-arrow" aria-label="Ver definición">
+          <span class="card-badge ${BADGE_CLASS[key]}">${BADGE_LABEL[key]}</span>
+          <span class="card-cta">Ver definicion
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
+          </span>
         </div>`;
-      card.addEventListener('click',()=>openModal(t,mat));
+      card.addEventListener('click',()=>openModal(t,key));
       grid.appendChild(card);
     });
   });
-  setupReveal();
+  initReveal();
 }
 
-/* ═══════════════════════════════════════
-   MARQUEE
-═══════════════════════════════════════ */
-function buildMarquee(){
-  const track=document.getElementById('marqueeTrack');
-  const colors={algo:'#60a5fa',tgs:'#34d399',agil:'#f87171'};
-  const items=[
-    ...DATA.algo.terms.map(t=>({t:t.term,c:colors.algo})),
-    ...DATA.tgs.terms.map(t=>({t:t.term,c:colors.tgs})),
-    ...DATA.agil.terms.map(t=>({t:t.term,c:colors.agil}))
-  ];
-  const doubled=[...items,...items];
-  doubled.forEach(({t,c})=>{
-    const el=document.createElement('div');
-    el.className='materia-item';
-    el.innerHTML=`<span class="mi-dot" style="background:${c}"></span>${t}`;
-    track.appendChild(el);
-  });
+function findDef(termName){
+  if(DEFS[termName]) return DEFS[termName];
+  const k=Object.keys(DEFS).find(k=>k.toLowerCase()===termName.toLowerCase());
+  return k?DEFS[k]:null;
 }
 
-/* ═══════════════════════════════════════
-   MODAL
-═══════════════════════════════════════ */
-let currentRequest=null;
-
-async function openModal(term,mat){
-  const overlay=document.getElementById('modalOverlay');
-  const icon=document.getElementById('modalIcon');
-  const tag=document.getElementById('modalTag');
-  const termEl=document.getElementById('modalTerm');
-  const body=document.getElementById('modalBody');
-
-  icon.textContent=term.icon;
-  icon.className=`modal-icon ${mat.bgClass}`;
-  icon.style.background=`rgba(0,0,0,0.06)`;
-
-  tag.textContent=mat.tagLabel;
-  tag.style.color=mat.color;
-  termEl.textContent=term.term;
-
-  body.innerHTML=`<div class="modal-loading"><div class="loader"></div><div class="loader-text">La IA está generando la definición...</div></div>`;
-  overlay.classList.add('open');
-  document.body.style.overflow='hidden';
-
-  try{
-    const def=await fetchDefinition(term.term,mat.label);
-    renderDefinition(body,def);
-  }catch(e){
+function openModal(t,key){
+  document.getElementById('mIcon').textContent=t.icon;
+  document.getElementById('mMateria').textContent=BADGE_LABEL[key];
+  document.getElementById('mMateria').style.color=BADGE_COLOR[key];
+  document.getElementById('mTerm').textContent=t.term;
+  const body=document.getElementById('mBody');
+  const def=findDef(t.term);
+  if(def){
+    const c=BADGE_COLOR[key];
     body.innerHTML=`
-      <div class="modal-error">
-        <div class="err-icon">⚠️</div>
-        <div>No se pudo obtener la definición. Verifica tu conexión.</div>
-        <button class="retry-btn" onclick="retryModal()">Reintentar</button>
+      <div class="def-block">
+        <div class="def-label" style="color:${c};">Definicion</div>
+        <p class="def-text">${def.def}</p>
+      </div>
+      <div class="def-block">
+        <div class="def-label" style="color:${c};">Ejemplo practico</div>
+        <div class="def-example">${def.ejemplo}</div>
+      </div>
+      <div class="def-block">
+        <div class="def-label" style="color:${c};">Palabras clave</div>
+        <div class="kw-row">${def.kws.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
       </div>`;
-    body._retryData={term,mat};
+  } else {
+    body.innerHTML=`<div style="padding:24px 0;text-align:center;color:var(--gray-400);font-size:15px;">Definicion no disponible.</div>`;
   }
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 
-function retryModal(){
-  const body=document.getElementById('modalBody');
-  if(body._retryData){
-    const {term,mat}=body._retryData;
-    openModal(term,mat);
-  }
-}
-
-async function fetchDefinition(termName,materia){
-  const prompt=`Eres un docente universitario experto explicando el término "${termName}" en el contexto de la materia "${materia}".
-
-Responde ÚNICAMENTE con un JSON válido con esta estructura exacta (sin markdown, sin backticks, sin texto extra):
-{
-  "definicion": "Definición clara y completa en 2-3 oraciones, en español, nivel universitario.",
-  "ejemplo": "Un ejemplo concreto y práctico de 1-2 oraciones que ilustre el concepto.",
-  "palabras_clave": ["palabra1","palabra2","palabra3","palabra4","palabra5"]
-}`;
-
-  const res=await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      messages:[{role:'user',content:prompt}]
-    })
-  });
-
-  if(!res.ok) throw new Error('API error '+res.status);
-  const data=await res.json();
-  const raw=data.content.map(b=>b.text||'').join('');
-  const clean=raw.replace(/```json|```/g,'').trim();
-  return JSON.parse(clean);
-}
-
-function renderDefinition(body,def){
-  body.innerHTML=`
-    <div class="modal-content-area">
-      <div class="modal-section">
-        <div class="modal-section-title">📖 Definición</div>
-        <p class="modal-definition">${def.definicion}</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-title">💡 Ejemplo práctico</div>
-        <div class="modal-example">${def.ejemplo}</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-title">🏷️ Palabras clave</div>
-        <div class="modal-keywords">${def.palabras_clave.map(k=>`<span class="kw-pill">${k}</span>`).join('')}</div>
-      </div>
-    </div>`;
-}
-
-function closeModal(e){
-  if(e.target===document.getElementById('modalOverlay')) closeModalDirect();
-}
-function closeModalDirect(){
-  document.getElementById('modalOverlay').classList.remove('open');
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModalDirect();});
+function closeOnBg(e){if(e.target===document.getElementById('overlay'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-/* ═══════════════════════════════════════
-   SEARCH / FILTER
-═══════════════════════════════════════ */
-function filterSection(gridId,query){
+function filterSection(gridId,q){
   const grid=document.getElementById(gridId);
-  const q=query.toLowerCase().trim();
+  const val=q.toLowerCase().trim();
   let any=false;
-  grid.querySelectorAll('.term-card').forEach(card=>{
-    const match=!q||card.dataset.term.includes(q);
-    card.style.display=match?'':'none';
-    if(match) any=true;
+  grid.querySelectorAll('.term-card').forEach(c=>{
+    const show=!val||c.dataset.search.includes(val);
+    c.style.display=show?'':'none';
+    if(show)any=true;
   });
   let nr=grid.nextElementSibling;
-  if(nr&&nr.classList.contains('no-results')) nr.remove();
-  if(!any&&q){
+  if(nr&&nr.classList.contains('no-results'))nr.remove();
+  if(!any&&val){
     const el=document.createElement('div');
     el.className='no-results';
-    el.textContent='No se encontraron términos para "'+query+'"';
+    el.textContent='Sin resultados para "'+q+'"';
     grid.after(el);
   }
 }
+function globalFilter(q){['algo','tgs','agil'].forEach(k=>filterSection('grid-'+k,q));}
 
-function filterGlobal(query){
-  const q=query.toLowerCase().trim();
-  if(!q){['algo-grid','tgs-grid','agil-grid'].forEach(id=>{
-    document.getElementById(id).querySelectorAll('.term-card').forEach(c=>c.style.display='');
-  });return;}
-  ['algo-grid','tgs-grid','agil-grid'].forEach(id=>{
-    document.getElementById(id).querySelectorAll('.term-card').forEach(card=>{
-      card.style.display=card.dataset.term.includes(q)?'':'none';
-    });
-  });
+function goTo(id,btn){
+  if(btn){
+    document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* ═══════════════════════════════════════
-   SCROLL & REVEAL
-═══════════════════════════════════════ */
-function scrollToSection(id){
-  const el=document.getElementById(id);
-  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function setupReveal(){
+function initReveal(){
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.1});
+  },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 }
 
-/* ═══════════════════════════════════════
-   INIT
-═══════════════════════════════════════ */
-renderCards();
-buildMarquee();
+renderAll();
 </script>
 </body>
 </html>
